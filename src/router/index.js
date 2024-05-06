@@ -10,20 +10,20 @@ const router = createRouter({
     {
       path: '/',
       name: 'posts',
-      component: AllPostsView
+      component: AllPostsView,
     },
     {
-      path: '/author',
+      path: '/author/:username',
       name: 'author',
-      component: AuthorView
+      component: AuthorView,
     },
     {
-      path: '/post',
+      path: '/post/:slug',
       name: 'post',
       component: PostView,
     },
     {
-      path: '/tag',
+      path: '/tag/:tag',
       name: 'tag',
       component: PostsByTagView,
     }

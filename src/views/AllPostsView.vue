@@ -1,20 +1,36 @@
 <script setup>
 import PostList from "../components/PostList.vue"
+import { useQuery } from "@vue/apollo-composable"
+import gql from "graphql-tag"
 
-const { result, loading, error } = {
-  error: {message: "no connection to the GRaphQL API yet!"},
-}
+const { result, loading, error } = useQuery(gql
+  ` 
+  query {
+      allPosts {
+        title
+        slug
+        author {
+          user {
+            username
+            firstName
+            lastName
+          }
+        }
+      }
+    }
+`);
 </script>
+
 
 <template>
   <h2>Recent Posts</h2>
-  <div v-if="loading">Loading</div>
-  <div v-if="error" class="warn"></div>
-  <PostList v-else :post="result.allPosts"/>
+  <div v-if="loading">Loading...</div>
+  <div v-else-if="error" class="warn"></div>
+  <PostList v-else :posts="result.allPosts" />
 </template>
 
 <style scoped>
   h2 {
-    color: blue;
+    color: rgb(48, 153, 54);
   }
 </style>

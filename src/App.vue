@@ -9,9 +9,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
       <nav>
         <RouterLink to="/">Posts</RouterLink>
-        <RouterLink :to="{name: 'author'}">Author</RouterLink>
+        <!-- <RouterLink :to="{name: 'author'}">Author</RouterLink>
         <RouterLink :to="{name: 'post'}">Post</RouterLink>
-        <RouterLink :to="{name: 'tag'}">Tag</RouterLink>
+        <RouterLink :to="{name: 'tag'}">Tag</RouterLink> -->
       </nav>
     </div>
   </header>
@@ -19,7 +19,29 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
+<style scoped>
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
 
+  header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  nav a {
+    padding: 0.5rem;
+  }
+</style>
+
+<!-- 
 <style scoped>
   h1 {
     text-align: center;
@@ -89,4 +111,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style> -->
